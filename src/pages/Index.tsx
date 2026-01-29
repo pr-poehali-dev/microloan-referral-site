@@ -116,6 +116,7 @@ const articles = [
 
 const Index = () => {
   const [showQuiz, setShowQuiz] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [quizStep, setQuizStep] = useState(1);
   const [quizAnswers, setQuizAnswers] = useState({
     amount: '',
@@ -147,9 +148,8 @@ const Index = () => {
               <a href="#quiz" className="text-foreground hover:text-primary transition-colors">Подбор займа</a>
             </nav>
             <Button className="hidden md:flex" onClick={() => {
-              setShowQuiz(true);
+              setIsChatOpen(true);
               setQuizStep(1);
-              setTimeout(() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' }), 100);
             }}>
               <Icon name="MessageCircle" className="mr-2" size={18} />
               Написать
@@ -213,7 +213,10 @@ const Index = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Ответьте на 4 вопроса, и мы подберём оптимальное предложение для вас
               </p>
-              <Button size="lg" onClick={() => setShowQuiz(true)}>
+              <Button size="lg" onClick={() => {
+                setIsChatOpen(true);
+                setQuizStep(1);
+              }}>
                 <Icon name="MessageCircle" className="mr-2" size={20} />
                 Начать подбор
               </Button>
@@ -639,6 +642,123 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {isChatOpen && (
+        <div className="fixed bottom-6 right-6 z-50 w-96 shadow-2xl rounded-lg overflow-hidden animate-in slide-in-from-bottom-5">
+          <Card className="border-2">
+            <CardHeader className="bg-primary text-white p-4">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-2xl">
+                    👤
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Олег</CardTitle>
+                    <p className="text-xs text-white/80">Помощник по подбору займа</p>
+                  </div>
+                </div>
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20" onClick={() => {
+                  setIsChatOpen(false);
+                  setQuizStep(1);
+                }}>
+                  <Icon name="X" size={20} />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="p-4 space-y-4 bg-muted/30 max-h-96 overflow-y-auto">
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <p className="text-sm">Привет! Я Олег, помогу подобрать оптимальный займ.</p>
+              </div>
+              <div className="w-full bg-muted h-1.5 rounded-full">
+                <div 
+                  className="bg-primary h-1.5 rounded-full transition-all duration-300" 
+                  style={{ width: `${(quizStep / 4) * 100}%` }}
+                />
+              </div>
+              {quizStep === 1 && (
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                    <p className="text-sm font-semibold">Какую сумму хотите взять?</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {['До 5 000 ₽', '5 000 - 15 000 ₽', '15 000 - 30 000 ₽', 'Более 30 000 ₽'].map((option) => (
+                      <Button
+                        key={option}
+                        variant="outline"
+                        size="sm"
+                        className="justify-start hover:bg-primary hover:text-white transition-all"
+                        onClick={() => handleQuizAnswer('amount', option)}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {quizStep === 2 && (
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                    <p className="text-sm font-semibold">На какой срок нужен займ?</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {['До 7 дней', '7 - 30 дней', '1 - 3 месяца', 'Более 3 месяцев'].map((option) => (
+                      <Button
+                        key={option}
+                        variant="outline"
+                        size="sm"
+                        className="justify-start hover:bg-primary hover:text-white transition-all"
+                        onClick={() => handleQuizAnswer('term', option)}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {quizStep === 3 && (
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                    <p className="text-sm font-semibold">Состояние кредитной истории</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {['Хорошая', 'Средняя', 'Плохая', 'Не знаю / нет'].map((option) => (
+                      <Button
+                        key={option}
+                        variant="outline"
+                        size="sm"
+                        className="justify-start hover:bg-primary hover:text-white transition-all"
+                        onClick={() => handleQuizAnswer('history', option)}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {quizStep === 4 && (
+                <div className="space-y-3">
+                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                    <p className="text-sm font-semibold">Как срочно нужны деньги?</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {['Прямо сейчас', 'Сегодня', 'В течение недели', 'Не срочно'].map((option) => (
+                      <Button
+                        key={option}
+                        variant="outline"
+                        size="sm"
+                        className="justify-start hover:bg-primary hover:text-white transition-all"
+                        onClick={() => handleQuizAnswer('speed', option)}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };
