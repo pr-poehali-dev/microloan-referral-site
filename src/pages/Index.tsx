@@ -133,7 +133,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-3xl">💸</span>
-              <h1 className="text-2xl font-bold text-primary">ЗаймЛегко</h1>
+              <h1 className="text-2xl font-bold text-primary">Dream Займ</h1>
             </div>
             <nav className="hidden md:flex gap-6">
               <a href="#catalog" className="text-foreground hover:text-primary transition-colors">Каталог МФО</a>
