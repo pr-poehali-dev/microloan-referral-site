@@ -622,14 +622,8 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Свяжитесь с нами</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <Icon name="Phone" size={16} />
-                  8 (800) 555-35-35
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Mail" size={16} />
-                  info@zaimlegko.ru
-                </li>
+                <li className="flex items-center gap-2"></li>
+                <li className="flex items-center gap-2">dreamzaim@mail.ru</li>
               </ul>
             </div>
           </div>
