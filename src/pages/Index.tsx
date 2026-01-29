@@ -158,7 +158,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <Badge className="bg-secondary text-white px-4 py-1 text-sm">
-              🔥 Более 50 проверенных МФО
+              🔥 Займы через Госуслуги и Т-Банк ID
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Микрозаймы онлайн
@@ -167,7 +167,7 @@ const Index = () => {
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Подберём лучший микрозайм за 2 минуты. Первый займ под 0%. 
-              Одобрение 98%, деньги на карту за 5 минут круглосуточно.
+              Оформление через Госуслуги и Т-Банк ID. Одобрение 98%, деньги на карту за 5 минут круглосуточно.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" className="text-lg px-8 hover-scale" onClick={() => setShowQuiz(true)}>
@@ -179,7 +179,7 @@ const Index = () => {
                 Посмотреть рейтинг
               </Button>
             </div>
-            <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-3xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">0%</div>
                 <div className="text-sm text-muted-foreground mt-1">Первый займ</div>
@@ -189,8 +189,12 @@ const Index = () => {
                 <div className="text-sm text-muted-foreground mt-1">На карту</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground mt-1">Круглосуточно</div>
+                <div className="text-3xl">🏛️</div>
+                <div className="text-sm text-muted-foreground mt-1">Госуслуги</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl">🏦</div>
+                <div className="text-sm text-muted-foreground mt-1">Т-Банк ID</div>
               </div>
             </div>
           </div>

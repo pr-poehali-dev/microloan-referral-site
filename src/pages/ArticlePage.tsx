@@ -712,16 +712,25 @@ const ArticlePage = () => {
 
             <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 mb-8">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">Нужен займ?</h3>
+                <Badge className="mb-4 bg-secondary text-white">🔥 Первый займ под 0%</Badge>
+                <h3 className="text-2xl font-bold mb-4">Получите займ под 0% прямо сейчас</h3>
                 <p className="text-muted-foreground mb-6">
-                  Подберём лучшее предложение за 2 минуты
+                  Одобрение за 5 минут • Деньги на карту • Без процентов первый займ
                 </p>
-                <Link to="/">
-                  <Button size="lg" className="text-lg px-8">
-                    <Icon name="Sparkles" className="mr-2" size={20} />
-                    Подобрать займ бесплатно
-                  </Button>
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link to="/">
+                    <Button size="lg" className="text-lg px-8">
+                      <Icon name="Zap" className="mr-2" size={20} />
+                      Получить займ 0%
+                    </Button>
+                  </Link>
+                  <Link to="/">
+                    <Button size="lg" variant="outline" className="text-lg px-8">
+                      <Icon name="TrendingUp" className="mr-2" size={20} />
+                      Все предложения
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
 
