@@ -138,7 +138,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-3xl">💸</span>
-              <h1 className="text-2xl font-bold text-primary">Dream Займ</h1>
+              <h1 className="text-2xl font-bold text-primary">DreamЗайм</h1>
             </div>
             <nav className="hidden md:flex gap-6">
               <a href="#catalog" className="text-foreground hover:text-primary transition-colors">Каталог МФО</a>
@@ -574,7 +574,7 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-3xl">💸</span>
-                <h3 className="text-xl font-bold">ЗаймЛегко</h3>
+                <h3 className="text-xl font-bold">DreamЗайм</h3>
               </div>
               <p className="text-sm text-muted-foreground">
                 Сервис подбора микрозаймов онлайн. Помогаем найти лучшие условия для каждого клиента.
@@ -613,7 +613,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2026 ЗаймЛегко. Все права защищены.
+            © 2026 DreamЗайм. Все права защищены.
           </div>
         </div>
       </footer>

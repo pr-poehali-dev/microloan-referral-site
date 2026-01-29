@@ -650,7 +650,7 @@ const ArticlePage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-3xl">💸</span>
-              <h1 className="text-2xl font-bold text-primary">ЗаймЛегко</h1>
+              <h1 className="text-2xl font-bold text-primary">DreamЗайм</h1>
             </Link>
             <Link to="/">
               <Button variant="ghost">
@@ -760,7 +760,7 @@ const ArticlePage = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-3xl">💸</span>
-                <h3 className="text-xl font-bold">ЗаймЛегко</h3>
+                <h3 className="text-xl font-bold">DreamЗайм</h3>
               </div>
               <p className="text-sm text-muted-foreground">
                 Сервис подбора микрозаймов онлайн. Помогаем найти лучшие условия для каждого клиента.
@@ -801,7 +801,7 @@ const ArticlePage = () => {
             </div>
           </div>
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2026 ЗаймЛегко. Все права защищены.
+            © 2026 DreamЗайм. Все права защищены.
           </div>
         </div>
       </footer>
