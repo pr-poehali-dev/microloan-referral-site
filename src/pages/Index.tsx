@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -88,24 +89,28 @@ const mfoData = [
 
 const articles = [
   {
+    slug: 'kak-vzyat-pervyj-zajm-pod-0',
     title: 'Как взять первый займ под 0%',
     category: 'Инструкции',
     readTime: '5 мин'
   },
   {
+    slug: 'chem-otlichaetsya-zajm-ot-kredita',
     title: 'Чем отличается займ от кредита',
     category: 'Полезное',
     readTime: '7 мин'
   },
   {
-    title: 'Что такое кредитная история',
-    category: 'Финансы',
-    readTime: '6 мин'
+    slug: 'sposoby-pogasheniya-zajma',
+    title: 'Все способы погашения микрозайма',
+    category: 'Инструкции',
+    readTime: '8 мин'
   },
   {
-    title: 'Лучшие МФО 2026',
-    category: 'Рейтинги',
-    readTime: '10 мин'
+    slug: 'kreditnaya-istoriya',
+    title: 'Что такое кредитная история',
+    category: 'Финансы',
+    readTime: '9 мин'
   }
 ];
 
@@ -525,18 +530,20 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {articles.map((article, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all hover-scale cursor-pointer">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">{article.category}</Badge>
-                  <CardTitle className="text-lg leading-tight">{article.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Icon name="Clock" className="mr-1" size={14} />
-                    {article.readTime}
-                  </div>
-                </CardContent>
-              </Card>
+              <Link key={index} to={`/articles/${article.slug}`}>
+                <Card className="hover:shadow-lg transition-all hover-scale cursor-pointer h-full">
+                  <CardHeader>
+                    <Badge className="w-fit mb-2">{article.category}</Badge>
+                    <CardTitle className="text-lg leading-tight">{article.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <Icon name="Clock" className="mr-1" size={14} />
+                      {article.readTime}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
