@@ -117,6 +117,7 @@ const articles = [
 const Index = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [showCookieNotice, setShowCookieNotice] = useState(true);
   const [quizStep, setQuizStep] = useState(1);
   const [quizAnswers, setQuizAnswers] = useState({
     amount: '',
@@ -760,6 +761,25 @@ const Index = () => {
               )}
             </CardContent>
           </Card>
+        </div>
+      )}
+
+      {showCookieNotice && (
+        <div className="fixed bottom-6 left-6 z-50 max-w-sm bg-white shadow-lg rounded-lg border p-4 animate-in slide-in-from-bottom-5">
+          <div className="flex items-start gap-3">
+            <div className="text-2xl">🍪</div>
+            <div className="flex-1">
+              <p className="text-sm text-muted-foreground mb-3">
+                Мы используем cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.
+              </p>
+              <Button size="sm" onClick={() => setShowCookieNotice(false)}>
+                Понятно
+              </Button>
+            </div>
+            <Button variant="ghost" size="sm" onClick={() => setShowCookieNotice(false)}>
+              <Icon name="X" size={16} />
+            </Button>
+          </div>
         </div>
       )}
     </div>
