@@ -769,19 +769,19 @@ const Index = () => {
       )}
 
       {showCookieNotice && (
-        <div className="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:bottom-6 z-40 max-w-sm bg-white shadow-lg rounded-lg border p-4 animate-in slide-in-from-bottom-5">
-          <div className="flex items-start gap-3">
-            <div className="text-2xl">🍪</div>
+        <div className="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:bottom-6 z-40 max-w-sm bg-white shadow-lg rounded-lg border p-2 animate-in slide-in-from-bottom-5">
+          <div className="flex items-center gap-2">
+            <div className="text-xl">🍪</div>
             <div className="flex-1">
-              <p className="text-sm text-muted-foreground mb-3">
-                Мы используем cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.
+              <p className="text-xs text-muted-foreground">
+                Мы используем cookie для улучшения работы сайта.
               </p>
-              <Button size="sm" onClick={() => setShowCookieNotice(false)}>
-                Принять
-              </Button>
             </div>
-            <Button variant="ghost" size="sm" onClick={() => setShowCookieNotice(false)}>
-              <Icon name="X" size={16} />
+            <Button size="sm" className="h-7 text-xs px-3" onClick={() => setShowCookieNotice(false)}>
+              Принять
+            </Button>
+            <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={() => setShowCookieNotice(false)}>
+              <Icon name="X" size={14} />
             </Button>
           </div>
         </div>
