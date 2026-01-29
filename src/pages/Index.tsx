@@ -118,6 +118,7 @@ const Index = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [showCookieNotice, setShowCookieNotice] = useState(true);
+  const [activeTab, setActiveTab] = useState('all');
   const [quizStep, setQuizStep] = useState(1);
   const [quizAnswers, setQuizAnswers] = useState({
     amount: '',
@@ -175,11 +176,17 @@ const Index = () => {
               Оформление через Госуслуги и Т-Банк ID. Одобрение 98%, деньги на карту за 5 минут круглосуточно.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button size="lg" className="text-lg px-8 hover-scale" onClick={() => setShowQuiz(true)}>
+              <Button size="lg" className="text-lg px-8 hover-scale" onClick={() => {
+                setActiveTab('all');
+                setTimeout(() => document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' }), 100);
+              }}>
                 <Icon name="Sparkles" className="mr-2" size={20} />
                 Подобрать займ бесплатно
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
+              <Button size="lg" variant="outline" className="text-lg px-8" onClick={() => {
+                setActiveTab('best');
+                setTimeout(() => document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' }), 100);
+              }}>
                 <Icon name="TrendingUp" className="mr-2" size={20} />
                 Посмотреть рейтинг
               </Button>
@@ -323,7 +330,7 @@ const Index = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-8">
               <TabsTrigger value="all">Все МФО</TabsTrigger>
               <TabsTrigger value="best">Лучшие</TabsTrigger>
