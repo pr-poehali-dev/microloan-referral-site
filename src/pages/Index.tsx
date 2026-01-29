@@ -146,9 +146,13 @@ const Index = () => {
               <a href="#articles" className="text-foreground hover:text-primary transition-colors">Статьи</a>
               <a href="#quiz" className="text-foreground hover:text-primary transition-colors">Подбор займа</a>
             </nav>
-            <Button className="hidden md:flex">
-              <Icon name="Phone" className="mr-2" size={18} />
-              Контакты
+            <Button className="hidden md:flex" onClick={() => {
+              setShowQuiz(true);
+              setQuizStep(1);
+              setTimeout(() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' }), 100);
+            }}>
+              <Icon name="MessageCircle" className="mr-2" size={18} />
+              Написать
             </Button>
           </div>
         </div>
