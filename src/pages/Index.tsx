@@ -205,9 +205,20 @@ const Index = () => {
         </div>
       </section>
 
-      {showQuiz && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
+      <section id="quiz" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          {!showQuiz ? (
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-4xl font-bold mb-4">Умный подбор займа</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Ответьте на 4 вопроса, и мы подберём оптимальное предложение для вас
+              </p>
+              <Button size="lg" onClick={() => setShowQuiz(true)}>
+                <Icon name="MessageCircle" className="mr-2" size={20} />
+                Начать подбор
+              </Button>
+            </div>
+          ) : (
             <Card className="max-w-2xl mx-auto shadow-lg">
               <CardHeader>
                 <div className="flex justify-between items-center">
@@ -295,9 +306,9 @@ const Index = () => {
                 )}
               </CardContent>
             </Card>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
       <section id="catalog" className="py-16">
         <div className="container mx-auto px-4">
