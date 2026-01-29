@@ -580,9 +580,7 @@ const Index = () => {
                 <span className="text-3xl">💸</span>
                 <h3 className="text-xl font-bold">DreamЗайм</h3>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Сервис подбора микрозаймов онлайн. Помогаем найти лучшие условия для каждого клиента.
-              </p>
+              <p className="text-sm text-muted-foreground">Информационный сервис</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">МФО</h4>
