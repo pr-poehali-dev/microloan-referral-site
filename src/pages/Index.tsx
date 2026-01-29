@@ -773,7 +773,7 @@ const Index = () => {
                 Мы используем cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.
               </p>
               <Button size="sm" onClick={() => setShowCookieNotice(false)}>
-                Понятно
+                Принять
               </Button>
             </div>
             <Button variant="ghost" size="sm" onClick={() => setShowCookieNotice(false)}>
