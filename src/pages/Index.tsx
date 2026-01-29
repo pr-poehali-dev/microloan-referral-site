@@ -616,8 +616,13 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2026 DreamЗайм. Все права защищены.
+          <div className="border-t mt-8 pt-8 text-center">
+            <p className="text-xs text-muted-foreground mb-3 max-w-4xl mx-auto leading-relaxed">
+              Данный сайт — витрина/информационный сервис. Мы не являемся кредитором и не принимаем решения по выдаче займов. Окончательные условия и документы размещены на сайтах соответствующих МФО. Оценивайте финансовые возможности и риски. 18+.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              © 2026 DreamЗайм. Все права защищены.
+            </p>
           </div>
         </div>
       </footer>
