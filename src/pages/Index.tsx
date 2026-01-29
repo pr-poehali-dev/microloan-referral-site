@@ -136,11 +136,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-3xl">💸</span>
-              <h1 className="text-2xl font-bold text-primary">DreamЗайм</h1>
+              <span className="text-2xl md:text-3xl">💸</span>
+              <h1 className="text-xl md:text-2xl font-bold text-primary">DreamЗайм</h1>
             </div>
             <nav className="hidden md:flex gap-6">
               <a href="#catalog" className="text-foreground hover:text-primary transition-colors">Каталог МФО</a>
@@ -148,12 +148,12 @@ const Index = () => {
               <a href="#articles" className="text-foreground hover:text-primary transition-colors">Статьи</a>
               <a href="#quiz" className="text-foreground hover:text-primary transition-colors">Подбор займа</a>
             </nav>
-            <Button className="hidden md:flex" onClick={() => {
+            <Button size="sm" onClick={() => {
               setIsChatOpen(true);
               setQuizStep(1);
             }}>
-              <Icon name="MessageCircle" className="mr-2" size={18} />
-              Написать
+              <Icon name="MessageCircle" className="md:mr-2" size={18} />
+              <span className="hidden md:inline">Написать</span>
             </Button>
           </div>
         </div>
@@ -165,12 +165,12 @@ const Index = () => {
             <Badge className="bg-secondary text-white px-4 py-1 text-sm">
               🔥 Займы через Госуслуги и Т-Банк ID
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Микрозаймы онлайн
               <br />
               <span className="text-primary">без отказа</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Подберём лучший микрозайм за 2 минуты. Первый займ под 0%. 
               Оформление через Госуслуги и Т-Банк ID. Одобрение 98%, деньги на карту за 5 минут круглосуточно.
             </p>
@@ -333,15 +333,15 @@ const Index = () => {
             <TabsContent value="all" className="space-y-4">
               {mfoData.map((mfo) => (
                 <Card key={mfo.id} className="hover:shadow-lg transition-all hover-scale">
-                  <CardContent className="p-6">
-                    <div className="grid md:grid-cols-12 gap-6 items-center">
-                      <div className="md:col-span-3 flex items-center gap-4">
-                        <div className="text-5xl">{mfo.logo}</div>
+                  <CardContent className="p-4 md:p-6">
+                    <div className="grid md:grid-cols-12 gap-4 md:gap-6">
+                      <div className="md:col-span-3 flex items-center gap-3 md:gap-4">
+                        <div className="text-4xl md:text-5xl">{mfo.logo}</div>
                         <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-bold text-lg">{mfo.name}</h3>
-                            {mfo.isNew && <Badge variant="secondary">Новая</Badge>}
-                            {mfo.isBest && <Badge className="bg-primary">ТОП</Badge>}
+                          <div className="flex flex-wrap items-center gap-1 md:gap-2 mb-1">
+                            <h3 className="font-bold text-base md:text-lg">{mfo.name}</h3>
+                            {mfo.isNew && <Badge variant="secondary" className="text-xs">Новая</Badge>}
+                            {mfo.isBest && <Badge className="bg-primary text-xs">ТОП</Badge>}
                           </div>
                           <div className="flex items-center gap-1 text-sm">
                             <Icon name="Star" className="text-yellow-500 fill-yellow-500" size={16} />
@@ -351,23 +351,23 @@ const Index = () => {
                         </div>
                       </div>
                       
-                      <div className="md:col-span-5 grid grid-cols-3 gap-4 text-center md:text-left">
+                      <div className="md:col-span-5 grid grid-cols-3 gap-2 md:gap-4 text-center md:text-left">
                         <div>
-                          <div className="text-2xl font-bold text-primary">{mfo.rate}</div>
-                          <div className="text-xs text-muted-foreground">Ставка в день</div>
+                          <div className="text-xl md:text-2xl font-bold text-primary">{mfo.rate}</div>
+                          <div className="text-xs text-muted-foreground">Ставка</div>
                         </div>
                         <div>
-                          <div className="text-sm font-semibold">{mfo.amount}</div>
-                          <div className="text-xs text-muted-foreground">Сумма займа</div>
+                          <div className="text-xs md:text-sm font-semibold">{mfo.amount}</div>
+                          <div className="text-xs text-muted-foreground">Сумма</div>
                         </div>
                         <div>
-                          <div className="text-sm font-semibold">{mfo.term}</div>
-                          <div className="text-xs text-muted-foreground">Срок займа</div>
+                          <div className="text-xs md:text-sm font-semibold">{mfo.term}</div>
+                          <div className="text-xs text-muted-foreground">Срок</div>
                         </div>
                       </div>
                       
                       <div className="md:col-span-4">
-                        <div className="flex flex-wrap gap-2 mb-3">
+                        <div className="flex flex-wrap gap-1 md:gap-2 mb-3">
                           {mfo.features.map((feature, idx) => (
                             <Badge key={idx} variant="outline" className="text-xs">
                               {feature}
@@ -376,7 +376,8 @@ const Index = () => {
                         </div>
                         <Button className="w-full" size="lg">
                           <Icon name="ExternalLink" className="mr-2" size={18} />
-                          Оформить займ
+                          <span className="hidden sm:inline">Оформить займ</span>
+                          <span className="sm:hidden">Оформить</span>
                         </Button>
                       </div>
                     </div>
@@ -442,14 +443,14 @@ const Index = () => {
             <TabsContent value="new" className="space-y-4">
               {mfoData.filter(mfo => mfo.isNew).map((mfo) => (
                 <Card key={mfo.id} className="hover:shadow-lg transition-all hover-scale">
-                  <CardContent className="p-6">
-                    <div className="grid md:grid-cols-12 gap-6 items-center">
-                      <div className="md:col-span-3 flex items-center gap-4">
-                        <div className="text-5xl">{mfo.logo}</div>
+                  <CardContent className="p-4 md:p-6">
+                    <div className="grid md:grid-cols-12 gap-4 md:gap-6">
+                      <div className="md:col-span-3 flex items-center gap-3 md:gap-4">
+                        <div className="text-4xl md:text-5xl">{mfo.logo}</div>
                         <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-bold text-lg">{mfo.name}</h3>
-                            <Badge variant="secondary">Новая</Badge>
+                          <div className="flex flex-wrap items-center gap-1 md:gap-2 mb-1">
+                            <h3 className="font-bold text-base md:text-lg">{mfo.name}</h3>
+                            <Badge variant="secondary" className="text-xs">Новая</Badge>
                           </div>
                           <div className="flex items-center gap-1 text-sm">
                             <Icon name="Star" className="text-yellow-500 fill-yellow-500" size={16} />
@@ -459,23 +460,23 @@ const Index = () => {
                         </div>
                       </div>
                       
-                      <div className="md:col-span-5 grid grid-cols-3 gap-4 text-center md:text-left">
+                      <div className="md:col-span-5 grid grid-cols-3 gap-2 md:gap-4 text-center md:text-left">
                         <div>
-                          <div className="text-2xl font-bold text-primary">{mfo.rate}</div>
-                          <div className="text-xs text-muted-foreground">Ставка в день</div>
+                          <div className="text-xl md:text-2xl font-bold text-primary">{mfo.rate}</div>
+                          <div className="text-xs text-muted-foreground">Ставка</div>
                         </div>
                         <div>
-                          <div className="text-sm font-semibold">{mfo.amount}</div>
-                          <div className="text-xs text-muted-foreground">Сумма займа</div>
+                          <div className="text-xs md:text-sm font-semibold">{mfo.amount}</div>
+                          <div className="text-xs text-muted-foreground">Сумма</div>
                         </div>
                         <div>
-                          <div className="text-sm font-semibold">{mfo.term}</div>
-                          <div className="text-xs text-muted-foreground">Срок займа</div>
+                          <div className="text-xs md:text-sm font-semibold">{mfo.term}</div>
+                          <div className="text-xs text-muted-foreground">Срок</div>
                         </div>
                       </div>
                       
                       <div className="md:col-span-4">
-                        <div className="flex flex-wrap gap-2 mb-3">
+                        <div className="flex flex-wrap gap-1 md:gap-2 mb-3">
                           {mfo.features.map((feature, idx) => (
                             <Badge key={idx} variant="outline" className="text-xs">
                               {feature}
@@ -484,7 +485,8 @@ const Index = () => {
                         </div>
                         <Button className="w-full" size="lg">
                           <Icon name="ExternalLink" className="mr-2" size={18} />
-                          Оформить займ
+                          <span className="hidden sm:inline">Оформить займ</span>
+                          <span className="sm:hidden">Оформить</span>
                         </Button>
                       </div>
                     </div>
@@ -499,8 +501,8 @@ const Index = () => {
       <section id="rating" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Рейтинг лучших МФО</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Рейтинг лучших МФО</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
               По отзывам пользователей и условиям займа
             </p>
           </div>
@@ -511,28 +513,29 @@ const Index = () => {
               .slice(0, 5)
               .map((mfo, index) => (
                 <Card key={mfo.id} className="hover:shadow-lg transition-all">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-6">
-                      <div className="text-4xl font-bold text-primary w-16 text-center">
+                  <CardContent className="p-4 md:p-6">
+                    <div className="flex items-center gap-3 md:gap-6">
+                      <div className="text-2xl md:text-4xl font-bold text-primary w-8 md:w-16 text-center flex-shrink-0">
                         {index + 1}
                       </div>
-                      <div className="text-5xl">{mfo.logo}</div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-bold text-xl">{mfo.name}</h3>
-                          {mfo.isBest && <Badge className="bg-primary">ТОП</Badge>}
+                      <div className="text-3xl md:text-5xl flex-shrink-0">{mfo.logo}</div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-1 md:gap-2 mb-1 md:mb-2">
+                          <h3 className="font-bold text-base md:text-xl">{mfo.name}</h3>
+                          {mfo.isBest && <Badge className="bg-primary text-xs">ТОП</Badge>}
                         </div>
-                        <div className="flex items-center gap-4 text-sm">
+                        <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm">
                           <div className="flex items-center gap-1">
-                            <Icon name="Star" className="text-yellow-500 fill-yellow-500" size={16} />
-                            <span className="font-semibold text-lg">{mfo.rating}</span>
+                            <Icon name="Star" className="text-yellow-500 fill-yellow-500" size={14} />
+                            <span className="font-semibold text-sm md:text-lg">{mfo.rating}</span>
                           </div>
-                          <span className="text-muted-foreground">{mfo.reviews} отзывов</span>
-                          <span className="text-primary font-semibold">{mfo.rate} в день</span>
+                          <span className="text-muted-foreground hidden sm:inline">{mfo.reviews} отзывов</span>
+                          <span className="text-primary font-semibold">{mfo.rate}</span>
                         </div>
                       </div>
-                      <Button>
-                        Оформить
+                      <Button size="sm" className="flex-shrink-0">
+                        <span className="hidden sm:inline">Оформить</span>
+                        <Icon name="ExternalLink" className="sm:hidden" size={16} />
                       </Button>
                     </div>
                   </CardContent>
@@ -545,13 +548,13 @@ const Index = () => {
       <section id="articles" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Полезные статьи</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Полезные статьи</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
               Всё о микрозаймах и кредитной истории
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {articles.map((article, index) => (
               <Link key={index} to={`/articles/${article.slug}`}>
                 <Card className="hover:shadow-lg transition-all hover-scale cursor-pointer h-full">
@@ -572,18 +575,18 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-primary to-secondary text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-primary to-secondary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Остались вопросы?</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Остались вопросы?</h2>
+          <p className="text-base md:text-xl mb-6 md:mb-8 opacity-90">
             Свяжитесь с нами любым удобным способом
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+            <Button size="lg" variant="secondary" className="text-base md:text-lg px-6 md:px-8">
               <Icon name="MessageCircle" className="mr-2" size={20} />
               Онлайн-чат
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 hover:bg-white/20 text-white border-white">
+            <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 bg-white/10 hover:bg-white/20 text-white border-white">
               <Icon name="Mail" className="mr-2" size={20} />
               Написать email
             </Button>
@@ -642,7 +645,7 @@ const Index = () => {
       </footer>
 
       {isChatOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-96 shadow-2xl rounded-lg overflow-hidden animate-in slide-in-from-bottom-5">
+        <div className="fixed bottom-4 right-4 left-4 md:left-auto md:bottom-6 md:right-6 z-50 w-auto md:w-96 shadow-2xl rounded-lg overflow-hidden animate-in slide-in-from-bottom-5">
           <Card className="border-2">
             <CardHeader className="bg-primary text-white p-4">
               <div className="flex justify-between items-center">
@@ -759,7 +762,7 @@ const Index = () => {
       )}
 
       {showCookieNotice && (
-        <div className="fixed bottom-6 left-6 z-50 max-w-sm bg-white shadow-lg rounded-lg border p-4 animate-in slide-in-from-bottom-5">
+        <div className="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:bottom-6 z-40 max-w-sm bg-white shadow-lg rounded-lg border p-4 animate-in slide-in-from-bottom-5">
           <div className="flex items-start gap-3">
             <div className="text-2xl">🍪</div>
             <div className="flex-1">
